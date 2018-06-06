@@ -33,7 +33,7 @@
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					  		if (empty($_POST["name"])) {
-							$nameErr = "Name is required";
+								$nameErr = "Name is required";
 					  		} else {
 								$name = test_input($_POST["name"]);
 								// check if name only contains letters and whitespace
@@ -42,8 +42,8 @@
 								}
 					  		}
 					  
-					  	if (empty($_POST["email"])) {
-							$emailErr = "Email is required";
+					  		if (empty($_POST["email"])) {
+								$emailErr = "Email is required";
 					  		} else {
 								$email = test_input($_POST["email"]);
 								// check if e-mail address is well-formed
@@ -52,7 +52,7 @@
 								}
 					  		}
 						
-					  	if (empty($_POST["website"])) {
+					  		if (empty($_POST["website"])) {
 								$website = "";
 					  		} else {
 								$website = test_input($_POST["website"]);
@@ -62,13 +62,13 @@
 								}
 					  		}
 					
-					  	if (empty($_POST["comment"])) {
+					  		if (empty($_POST["comment"])) {
 								$comment = "";
 					  		} else {
 								$comment = test_input($_POST["comment"]);
 					  		}
 					
-					  	if (empty($_POST["gender"])) {
+					  		if (empty($_POST["gender"])) {
 								$genderErr = "Gender is required";
 					  		} else {
 								$gender = test_input($_POST["gender"]);
