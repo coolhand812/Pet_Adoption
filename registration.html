@@ -26,55 +26,44 @@
 				
 				<div id="main">
                 
-					<?php
-						// define variables and set to empty values
-						$petIDErr = $petNameErr = $genderErr = $pet_typeErr = $ageErr = $notesErr = "";
-						$petID = $petName = $gender = $pet_type = $age = $notes = "";
-					
-						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-					  		if (empty($_POST["name"])) {
-								$nameErr = "Name is required";
-					  		} else {
-								$name = test_input($_POST["name"]);
-								// check if name only contains letters and whitespace
-							if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-						  		$nameErr = "Only letters and white space allowed"; 
-								}
-					  		}
-					  
-					  		if (empty($_POST["email"])) {
-								$emailErr = "Email is required";
-					  		} else {
-								$email = test_input($_POST["email"]);
-								// check if e-mail address is well-formed
-							if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-						  		$emailErr = "Invalid email format"; 
-								}
-					  		}
-						
-					  		if (empty($_POST["website"])) {
-								$website = "";
-					  		} else {
-								$website = test_input($_POST["website"]);
-								// check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-							if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-						  		$websiteErr = "Invalid URL"; 
-								}
-					  		}
-					
-					  		if (empty($_POST["comment"])) {
-								$comment = "";
-					  		} else {
-								$comment = test_input($_POST["comment"]);
-					  		}
-					
-					  		if (empty($_POST["gender"])) {
-								$genderErr = "Gender is required";
-					  		} else {
-								$gender = test_input($_POST["gender"]);
-					  		}
-						}
-					?>	
+					<!-- Form with no validation -->
+	<form action="process_registration.php" method="post">
+		<b>Intake date: </b><br>
+		<input type="text" name="InDate" size="30" maxlength="25" title=" <?php echo .date("m/d/Y").">
+		<br><br>
+		
+		<b>Please enter your first name</b><br>
+		<input type="text" name="FName" size="30" maxlength="25" title=" Enter Your First Name">
+		<br><br>
+		
+		<b>Please enter your last name</b><br>
+		<input type="text" name="LName" size="30" maxlength="25" title=" Enter Your Last Name">
+		<br><br>
+		
+		<b>Please enter your Zip Code</b><br>
+		<input type="text" name="ZipCode" size="30" maxlength="5" title=" Enter Your Zip Code">
+		<br><br>
+		
+		<b>Please enter your e-mail</b><br>
+		<input type="text" id="email" name="email_address" size="30" maxlength="40" title=" Enter Your e-mail">
+	
+		<br><br>
+		
+		<b>Please enter your phone number</b><br>
+		<input type="text" name="PhoneNumber" size="30" maxlength="14" title=" Enter Your phone number">
+		<br><br>
+		
+		<b>Please enter a password</b><br>
+		<input type="text" name="Pwd" size="30" maxlength="20" title=" Enter a password">
+		<br><br>
+		
+		<b>Validate your password</b><br>
+		<input type="text" name="Pwd1" size="30" maxlength="20" title=" Enter the same password">
+		<br><br>
+		
+		<input type="submit" value="Sign Up">
+	</form>
+	<br><br>	
 					
 				</div>
 				
