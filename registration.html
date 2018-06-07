@@ -29,7 +29,7 @@
 					<!-- Form with no validation -->
 	<form action="process_registration.php" method="post">
 		<b>Intake date </b><br>
-		<input type="text" name="InDate" size="30" maxlength="25" value= date("Y/m/d")>
+		<input type="date" value="<?php echo date('Y-m-d'); ?>" />
 		<br><br>
 		
 		<b>Pet ID </b><br>
@@ -45,7 +45,13 @@
 		<br><br>
 		
 		<b>Please enter type of pet (dog, cat, etc..) </b><br>
-		<input type="text" name="petType" size="30" maxlength="25" title=" Enter petType">
+		<select name = "petType">
+			<option value="dog" selected="selected">DOG</option>
+			<option value="cat">CAT</option>
+			<option value="lizard">LIZ</option>
+			<option value="bird">BIR</option>
+			<option value="rabbit">RAB</option>
+		</select>
 		<br><br>
 		
 		<b>Please enter the pet's age </b><br>
