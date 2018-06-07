@@ -28,26 +28,27 @@
                 
 					<?php
 						// define variables and set to empty values
-						$petIDErr = $petNameErr = $genderErr = $pet_typeErr = $ageErr = $notesErr = "";
-						$petID = $petName = $gender = $pet_type = $age = $notes = "";
+						$petIDErr = $petNameErr = $genderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
+						$petID = $petName = $gender = $petType = $petAge = $petNotes = "";
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-					  		if (empty($_POST["name"])) {
-								$nameErr = "Name is required";
+							  
+							if (empty($_POST["petName"])) {
+								$petNameErr = "Name is required";
 					  		} else {
-								$name = test_input($_POST["name"]);
+								$petName = test_input($_POST["petName"]);
 								// check if name only contains letters and whitespace
-							if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-						  		$nameErr = "Only letters and white space allowed"; 
+								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
+						  		$petNameErr = "Only letters and white space allowed"; 
 								}
-					  		}
+							}
 					  
 					  		if (empty($_POST["email"])) {
 								$emailErr = "Email is required";
 					  		} else {
 								$email = test_input($_POST["email"]);
 								// check if e-mail address is well-formed
-							if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+								if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 						  		$emailErr = "Invalid email format"; 
 								}
 					  		}
@@ -57,7 +58,7 @@
 					  		} else {
 								$website = test_input($_POST["website"]);
 								// check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-							if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+								if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
 						  		$websiteErr = "Invalid URL"; 
 								}
 					  		}
