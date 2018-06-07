@@ -43,15 +43,15 @@
 								}
 							}
 					  
-					  		if (empty($_POST["email"])) {
-								$emailErr = "Email is required";
+							if (empty($_POST["petName"])) {
+								$petNameErr = "Name is required";
 					  		} else {
-								$email = test_input($_POST["email"]);
-								// check if e-mail address is well-formed
-								if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-						  		$emailErr = "Invalid email format"; 
+								$petName = test_input($_POST["petName"]);
+								// check if name only contains letters and whitespace
+								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
+						  		$petNameErr = "Only letters and white space allowed"; 
 								}
-					  		}
+							}
 						
 					  		if (empty($_POST["website"])) {
 								$website = "";
