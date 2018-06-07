@@ -28,39 +28,34 @@
                 
 					<!-- Form with no validation -->
 	<form action="process_registration.php" method="post">
-		<b>Intake date: </b><br>
-		<input type="text" name="InDate" size="30" maxlength="25" title=" <?php echo .date("m/d/Y").">
+		<b>Intake date </b><br>
+		<input type="text" name="InDate" size="30" maxlength="25" title= <?php echo .date("m/d/Y").>
 		<br><br>
 		
-		<b>Please enter your first name</b><br>
-		<input type="text" name="FName" size="30" maxlength="25" title=" Enter Your First Name">
+		<b>Pet ID </b><br>
+		<input type="text" name="petID" size="30" maxlength="25" title=" Enter Your First Name">
 		<br><br>
 		
-		<b>Please enter your last name</b><br>
-		<input type="text" name="LName" size="30" maxlength="25" title=" Enter Your Last Name">
+		<b>Please enter the Pet name</b><br>
+		<input type="text" name="petName" size="30" maxlength="25" title=" Enter petName">
 		<br><br>
 		
-		<b>Please enter your Zip Code</b><br>
-		<input type="text" name="ZipCode" size="30" maxlength="5" title=" Enter Your Zip Code">
+		<b>Please enter the Pet's gender </b><br>
+		<input type="text" name="petGender" size="30" maxlength="25" title=" Enter petGender">
 		<br><br>
 		
-		<b>Please enter your e-mail</b><br>
-		<input type="text" id="email" name="email_address" size="30" maxlength="40" title=" Enter Your e-mail">
-	
+		<b>Please enter type of pet (dog, cat, etc..) </b><br>
+		<input type="text" name="petType" size="30" maxlength="25" title=" Enter petType">
 		<br><br>
 		
-		<b>Please enter your phone number</b><br>
-		<input type="text" name="PhoneNumber" size="30" maxlength="14" title=" Enter Your phone number">
+		<b>Please enter the pet's age </b><br>
+		<input type="text" name="petAge" size="30" maxlength="10" title=" Enter petAge">
 		<br><br>
 		
-		<b>Please enter a password</b><br>
-		<input type="text" name="Pwd" size="30" maxlength="20" title=" Enter a password">
+		<b>Please enter any notes </b><br>
+		<input type="text" name="petNotes" size="30" maxlength="120" title=" Enter petNotes">
 		<br><br>
-		
-		<b>Validate your password</b><br>
-		<input type="text" name="Pwd1" size="30" maxlength="20" title=" Enter the same password">
-		<br><br>
-		
+				
 		<input type="submit" value="Sign Up">
 	</form>
 	<br><br>	
