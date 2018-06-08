@@ -83,7 +83,7 @@
 						
 						function CreateMySQLUser($inDate, $petID, $petName, $petGender, $petType, $petAge, $petNotes)
 						{
-							echo "<b>Creating User: <i>$firstName $lastName</i></b><br>";
+							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
 							$conn = new mysqli('localhost1234', 'root', 'Squidly812', 'pet adoption');
 							// Check connection
@@ -92,8 +92,8 @@
 								die("Connection failed: " . $conn->connect_error);
 							} 
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							$sql = "INSERT INTO pettable (FName, LName, ZipCode, Email, PhoneNumber, Password)
-							VALUES ('$firstName' , '$lastName', '$zipCode', '$userEmail', '$phoneNumber', '$userPassword')";
+							$sql = "INSERT INTO pettable (inDate, petID, petName, petGender, petType, petAge, petNotes)
+							VALUES ('$inDate' , 'petID' , '$petName', '$petGender', '$petType', '$petAge', '$petNotes')";
 						
 							echo "SQL Statemet: $sql <br>";
 							if ($conn->query($sql) === TRUE)
