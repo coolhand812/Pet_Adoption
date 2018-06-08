@@ -33,6 +33,8 @@
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							  
+							//petID validate If the pet_id already exists
+
 							if (empty($_POST["petName"])) {
 								$petNameErr = "Name is required";
 					  			} else {
@@ -57,26 +59,18 @@
 								}
 							}
 						
-					  		if (empty($_POST["website"])) {
-								$website = "";
-					  		} else {
-								$website = test_input($_POST["website"]);
-								// check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-								if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-						  		$websiteErr = "Invalid URL"; 
-								}
-					  		}
+					  		if(isset($_POST["petType"])){
+								$petType = petType;
+							}
+
+							if(isset($_POST["petAge"])){
+								$petAge = petAge;
+							}
 					
-					  		if (empty($_POST["comment"])) {
-								$comment = "";
-					  		} else {
-								$comment = test_input($_POST["comment"]);
-					  		}
-					
-					  		if (empty($_POST["gender"])) {
-								$genderErr = "Gender is required";
-					  		} else {
-								$gender = test_input($_POST["gender"]);
+					  		if (empty($_POST["petNotes"])){
+								$petNotes = "";
+					  			} elseif(isset($_POST["petNotes"])){
+								$petNotes = petNotes;
 					  		}
 						}
 					?>	
