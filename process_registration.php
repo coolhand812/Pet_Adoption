@@ -28,11 +28,15 @@
                 
 					<?php
 						// define variables and set to empty values
-						$petIDErr = $petNameErr = $petGenderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
-						$petID = $petName = $petGender = $petType = $petAge = $petNotes = "";
+							$petIDErr = $petNameErr = $petGenderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
+						$inDate = $petID = $petName = $petGender = $petType = $petAge = $petNotes = "";
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-							  
+							
+							if(isset($_POST["inDate"])){
+								$inDate = $_POST["inDate"];
+							}
+
 							//petID validate If the pet_id already exists
 
 							if (empty($_POST["petName"])) {
@@ -43,7 +47,7 @@
 								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
 						  		$petNameErr = "Only letters and white space allowed"; 
 								}elseif(isset($_POST["petName"])){
-									$petName = petName;
+									$petName = $_POST["petName"];
 								}
 							}
 					  
@@ -55,24 +59,61 @@
 								if (!preg_match("/^[a-zA-Z ]*$/",$petGender)) {
 						  		$petGenderErr = "Only letters and white space allowed"; 
 								}elseif(isset($_POST["petGender"])){
-									$petGender = petGender;
+									$petGender = $_POST["petGender"];
 								}
 							}
 						
 					  		if(isset($_POST["petType"])){
-								$petType = petType;
+								$petType = $_POST["petType"];
 							}
 
 							if(isset($_POST["petAge"])){
-								$petAge = petAge;
+								$petAge = $_POST["petAge"];
 							}
 					
 					  		if (empty($_POST["petNotes"])){
 								$petNotes = "";
 					  			} elseif(isset($_POST["petNotes"])){
-								$petNotes = petNotes;
+								$petNotes = $_POST["petNotes"];
 					  		}
 						}
+
+						echo "</br></br>";
+						CreateMySQLUser($inDate, $petID, $petName, $petGender, $petType, $petAge, $petNotes);
+						
+						function CreateMySQLUser($inDate, $petID, $petName, $petGender, $petType, $petAge, $petNotes)
+						{
+							echo "<b>Creating User: <i>$firstName $lastName</i></b><br>";
+							// Create connection
+							$conn = new mysqli('localhost1234', 'root', 'Squidly812', 'pet adoption');
+							// Check connection
+							if ($conn->connect_error)
+							{
+								die("Connection failed: " . $conn->connect_error);
+							} 
+							echo "<b>Connection to MySQL DB established!</b> <br>";
+							$sql = "INSERT INTO pettable (FName, LName, ZipCode, Email, PhoneNumber, Password)
+							VALUES ('$firstName' , '$lastName', '$zipCode', '$userEmail', '$phoneNumber', '$userPassword')";
+						
+							echo "SQL Statemet: $sql <br>";
+							if ($conn->query($sql) === TRUE)
+							{
+								echo "<b>New record created successfully</b><br>";
+							}
+							else
+							{
+								echo "Error: " . $sql . "<br>" . $conn->error;
+							}
+						
+							$conn->close();	
+						
+						}
+						
+						
+						?>
+						</br></br>
+						<a href="index.php">Go back to the main page</a>
+
 					?>	
 					
 				</div>
