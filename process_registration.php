@@ -28,28 +28,32 @@
                 
 					<?php
 						// define variables and set to empty values
-						$petIDErr = $petNameErr = $genderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
-						$petID = $petName = $gender = $petType = $petAge = $petNotes = "";
+						$petIDErr = $petNameErr = $petGenderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
+						$petID = $petName = $petGender = $petType = $petAge = $petNotes = "";
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							  
 							if (empty($_POST["petName"])) {
 								$petNameErr = "Name is required";
-					  		} else {
+					  			} else {
 								$petName = test_input($_POST["petName"]);
 								// check if name only contains letters and whitespace
 								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
 						  		$petNameErr = "Only letters and white space allowed"; 
+								}elseif(isset($_POST["petName"])){
+									$petName = petName;
 								}
 							}
 					  
-							if (empty($_POST["petName"])) {
-								$petNameErr = "Name is required";
-					  		} else {
-								$petName = test_input($_POST["petName"]);
+							if (empty($_POST["petGender"])) {
+								$petGenderErr = "Gender is required";
+					  			} else {
+								$petGender = test_input($_POST["petGender"]);
 								// check if name only contains letters and whitespace
-								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
-						  		$petNameErr = "Only letters and white space allowed"; 
+								if (!preg_match("/^[a-zA-Z ]*$/",$petGender)) {
+						  		$petGenderErr = "Only letters and white space allowed"; 
+								}elseif(isset($_POST["petGender"])){
+									$petGender = petGender;
 								}
 							}
 						
