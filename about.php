@@ -21,12 +21,31 @@
 				</div>
 				
 				<div id="header2">
-					<h2>Pet Adoption</h2>
+					<h2>Who are we?</h2>
 				</div>
 				
 				<div id="main">
 						
-				//input information about pet adoption	
+				<p>...and, we are passionate about our canine friends.</p>
+                <p> It is no secret that our canine companions enrich our lives </p>
+                <p> and, in order to prolong our best friend's life, we need to keep them healthy. </p>
+                <hr>
+                <p><b>Why adopt instead of buyng your pet?</b></p>
+                    <ol>
+                        <li>Keeps their heart and lungs in top shape</li>
+                        <li>It keeps their joints healthy</li>
+                        <li>It helps their digestive and circulatory system</li>
+                        <li>It stops their destructive behavior and hyperactivity</li>
+                    </ol>
+
+                <p><b>What are some of the benefits of waking your dog?</b></p>
+                    <ol>
+                        <li>Keeps their heart and lungs in top shape</li>
+                        <li>It keeps their joints healthy</li>
+                        <li>It helps their digestive and circulatory system</li>
+                        <li>It stops their destructive behavior and hyperactivity</li>
+                    </ol>
+                <hr>	
 					
 				</div>
 				
