@@ -28,7 +28,7 @@
                 
 					<?php
 						// define variables and set to empty values
-							$petIDErr = $petNameErr = $petGenderErr = $petTypeErr = $petAgeErr = $petNotesErr = "";
+						$petIDErr = $petNameErr = $petGenderErr = $petTypeErr = $petAgeErr = "";
 						$inDate = $petID = $petName = $petGender = $petType = $petAge = $petNotes = "";
 					
 						if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -77,12 +77,14 @@
 								$petType = $_POST["petType"];
 							}
 
-							if(isset($_POST["petAge"])){
+							if (empty($_POST["petAge"])) {
+								$petAgeErr = "pet age is required";
+					  			} elseif(isset($_POST["petAge"])){
 								$petAge = $_POST["petAge"];
 							}
 					
 					  		if (empty($_POST["petNotes"])){
-								$petNotes = "";
+								$petNotes = "please insert a pet description";
 					  			} elseif(isset($_POST["petNotes"])){
 								$petNotes = $_POST["petNotes"];
 					  		}
