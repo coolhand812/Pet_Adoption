@@ -40,13 +40,13 @@
     					die("Connection failed: " . $conn->connect_error);
 					} 
 
-					$sql = "SELECT id, firstname, lastname FROM MyGuests";
+					$sql = "SELECT pet_id, name, gender, age, type_id, notes, intake_date FROM pettable";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
     					// output data of each row
     					while($row = $result->fetch_assoc()) {
-        				echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        				echo "id: " . $row["pet_id"]. " - Name: " . $row["name"]. " " . $row["gender"]. " " . $row["age"]. " " . $row["type_id"]. " " . $row["notes"]. " " . $row["intake_date"]. "<br>";
     					}
 					} else {
     					echo "0 results";
