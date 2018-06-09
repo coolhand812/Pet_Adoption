@@ -21,7 +21,7 @@
 				</div>
 				
 				<div id="header2">
-					<h2>Who are we?</h2>
+					<h2>We are your pet shelter!</h2>
 				</div>
 				
 				<div id="main">
