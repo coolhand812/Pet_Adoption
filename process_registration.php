@@ -107,7 +107,7 @@
 							$sql = "INSERT INTO pettable (inDate, petID, petName, petGender, petType, petAge, petNotes)
 							VALUES ('$inDate' , 'petID' , '$petName', '$petGender', '$petType', '$petAge', '$petNotes')";
 						
-							echo "SQL Statemet: $sql <br>";
+							echo "SQL Statement: $sql <br>";
 							if ($conn->query($sql) === TRUE)
 							{
 								echo "<b>New record created successfully</b><br>";
