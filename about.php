@@ -32,10 +32,11 @@
                 <hr>
                 <p><b>Why adopt instead of buyng your pet?</b></p>
                     <ol>
-                        <li>Keeps their heart and lungs in top shape</li>
-                        <li>It keeps their joints healthy</li>
-                        <li>It helps their digestive and circulatory system</li>
-                        <li>It stops their destructive behavior and hyperactivity</li>
+                        <li>Because you'll save a life</li>
+                        <li>Because you'll get a great animal</li>
+                        <li>Because it'll cost you less</li>
+						<li>Because it's one way to fight puppy mills</li>
+						<li>Because you'll change a homeless animal's whole world</li>
                     </ol>
 
                 <p><b>What are some of the benefits of waking your dog?</b></p>
