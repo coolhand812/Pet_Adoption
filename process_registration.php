@@ -91,9 +91,9 @@
 						}
 
 						echo "</br></br>";
-						CreateMySQLUser($inDate, $petID, $petName, $petGender, $petType, $petAge, $petNotes);
+						CreateMySQLUser($petID, $petName, $petGender, $petAge, $petType, $petNotes, $inDate);
 						
-						function CreateMySQLUser($inDate, $petID, $petName, $petGender, $petType, $petAge, $petNotes)
+						function CreateMySQLUser($petID, $petName, $petGender, $petAge, $petType, $petNotes, $inDate)
 						{
 							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
@@ -102,10 +102,11 @@
 							if ($conn->connect_error)
 							{
 								die("Connection failed: " . $conn->connect_error);
-							} 
+							}
+							 
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							$sql = "INSERT INTO pettable (inDate, petID, petName, petGender, petType, petAge, petNotes)
-							VALUES ('$inDate' , 'petID' , '$petName', '$petGender', '$petType', '$petAge', '$petNotes')";
+							$sql = "INSERT INTO pettable (petID, petName, petGender, petAge, petType, petNotes, inDate)
+							VALUES ('$petID', '$petName', '$petGender', '$petAge', '$petType', '$petNotes', '$inDate')";
 						
 							echo "SQL Statement: $sql <br>";
 							if ($conn->query($sql) === TRUE)
@@ -117,16 +118,11 @@
 								echo "Error: " . $sql . "<br>" . $conn->error;
 							}
 						
-							$conn->close();	
-						
+							$conn->close();
 						}
-						
-						
-						?>
-						</br></br>
-						<a href="index.php">Go back to the main page</a>
-
 					?>	
+						</br></br>
+						<a href="index.php">Go back to the main page</a>	
 					
 				</div>
 				
