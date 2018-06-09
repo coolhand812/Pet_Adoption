@@ -14,8 +14,8 @@
 				<div id="nav">
 					<h3>Navigation</h3>
 					<ul>
-						<li>Home</li>
-						<li>About</li>
+						<li><a href="main_menu.html">Main</a></li>
+						<li><a href="about.php">About</a></li>
 						<li>Contact</li>
 					</ul>
 				</div>
