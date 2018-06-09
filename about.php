@@ -15,8 +15,8 @@
 					<h3>Navigation</h3>
 					<ul>
 						<li><a href="main_menu.html">Main</a></li>
-						<li>About</li>
-						<li>Contact</li>
+						<li><a href="about.php">About</a></li>
+						<li><a href="mailto:coolhand812@cityuniversity.edu">Contact</a></li>
 					</ul>
 				</div>
 				
