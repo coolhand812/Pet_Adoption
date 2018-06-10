@@ -38,7 +38,7 @@
 							}
 
 							//petID validate If the pet_id already exists
-							$conn = new mysqli('localhost1234', 'root', '', 'pet adoption');
+							$conn = new mysqli('localhost1234', 'root', '', 'pet_adoption');
 							// Check connection
 							if ($conn->connect_error)
 							{
@@ -56,24 +56,24 @@
 							$conn->close();
 
 							if (empty($_POST["petName"])) {
-								$petNameErr = "Name is required";
+									$petNameErr = "Name is required";
 					  			} else {
-								$petName = test_input($_POST["petName"]);
+							    	$petName = ($_POST["petName"]);
 								// check if name only contains letters and whitespace
 								if (!preg_match("/^[a-zA-Z ]*$/",$petName)) {
-						  		$petNameErr = "Only letters and white space allowed"; 
+						  			$petNameErr = "Only letters and white space allowed"; 
 								}elseif(isset($_POST["petName"])){
 									$petName = $_POST["petName"];
 								}
 							}
 					  
 							if (empty($_POST["petGender"])) {
-								$petGenderErr = "Gender is required";
+									$petGenderErr = "Gender is required";
 					  			} else {
-								$petGender = test_input($_POST["petGender"]);
+									$petGender = ($_POST["petGender"]);
 								// check if name only contains letters and whitespace
 								if (!preg_match("/^[a-zA-Z ]*$/",$petGender)) {
-						  		$petGenderErr = "Only letters and white space allowed"; 
+						  			$petGenderErr = "Only letters and white space allowed"; 
 								}elseif(isset($_POST["petGender"])){
 									$petGender = $_POST["petGender"];
 								}
@@ -103,7 +103,7 @@
 						{
 							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
-							$conn = new mysqli('localhost1234', 'root', '', 'pet adoption');
+							$conn = new mysqli('localhost1234', 'root', '', 'pet_adoption');
 							// Check connection
 							if ($conn->connect_error)
 							{
