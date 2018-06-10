@@ -38,7 +38,7 @@
 							}
 
 							$noEntries = 0;
-							
+
 							if($noEntries != 0){
 								//petID validate If the pet_id already exists
 								$servername = "localhost1234";
@@ -118,13 +118,17 @@
 						{
 							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
-							$conn = new mysqli('localhost1234', 'root', '', 'pet_adoption');
-							// Check connection
-							if ($conn->connect_error)
+							$servername = "localhost1234";
+							$username = "root";
+							$password = "";
+							$database = "pet_adoption";
+								//make connection	
+							$conn = new mysqli($servername, $username, $password, $database);
+								// Check connection
+							if (!$conn)
 							{
-								die("Connection failed: " . $conn->connect_error);
+								die("Connection failed: " . mysqli_connect_error());
 							}
-							 
 							echo "<b>Connection to MySQL DB established!</b> <br>";
 							$sql = "INSERT INTO pettable (petID, petName, petGender, petAge, petType, petNotes, inDate)
 							VALUES ('$petID', '$petName', '$petGender', '$petAge', '$petType', '$petNotes', '$inDate')";
