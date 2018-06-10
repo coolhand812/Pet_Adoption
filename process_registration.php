@@ -49,8 +49,8 @@
 								die("Connection failed: " . mysqli_connect_error());
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
 							try{
+							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
 								if($result->num_rows == 0) {
 									 // row not found, do stuff...
 							 		$petID = $_POST["petID"];
