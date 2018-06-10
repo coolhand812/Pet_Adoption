@@ -38,11 +38,16 @@
 							}
 
 							//petID validate If the pet_id already exists
-							$conn = new mysqli('localhost1234', 'root', '', 'pet_adoption');
+							$servername = "localhost1234";
+							$username = "root";
+							$password = "";
+							$database = "pet_adoption";
+
+							$conn = new mysqli_connect($servername, $username, $password, $database);
 							// Check connection
-							if ($conn->connect_error)
+							if (!$conn)
 							{
-								die("Connection failed: " . $conn->connect_error);
+								die("Connection failed: " . mysqli_connect_error());
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
 							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
