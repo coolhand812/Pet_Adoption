@@ -38,7 +38,7 @@
 							}
 
 							//petID validate If the pet_id already exists
-							$servername = "localhost1234";
+							$servername = "localhost";
 							$username = "root";
 							$password = "";
 							$database = "pet_adoption";
@@ -49,7 +49,7 @@
 								die("Connection failed: " . mysqli_connect_error());
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id == $petID");
+							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
 							if($result->num_rows == 0) {
 								 // row not found, do stuff...
 							 	$petID = $_POST["petID"];
@@ -108,7 +108,7 @@
 						{
 							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
-							$servername = "localhost1234";
+							$servername = "localhost";
 							$username = "root";
 							$password = "";
 							$database = "pet_adoption";
@@ -120,7 +120,7 @@
 								die("Connection failed: " . mysqli_connect_error());
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							$sql = "INSERT INTO pettable (petID, petName, petGender, petAge, petType, petNotes, inDate)
+							$sql = "INSERT INTO pettable (pet_id, name, gender, age, type_id, notes, intake_date)
 							VALUES ('$petID', '$petName', '$petGender', '$petAge', '$petType', '$petNotes', '$inDate')";
 						
 							echo "SQL Statement: $sql <br>";
@@ -137,7 +137,7 @@
 						}
 					?>	
 						</br></br>
-						<a href="index.php">Go back to the main page</a>	
+						<a href="main_menu.html">Go back to the main page</a>	
 					
 				</div>
 				
