@@ -43,7 +43,7 @@
 							$password = "";
 							$database = "pet_adoption";
 
-							$conn = new mysqli_connect($servername, $username, $password, $database);
+							$conn = new mysqli($servername, $username, $password, $database);
 							// Check connection
 							if (!$conn)
 							{
