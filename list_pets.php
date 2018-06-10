@@ -25,7 +25,7 @@
 				</div>
 				
 				<div id="main">
-				
+				<br><br>
 				<?php
 					//generate db query and get a table
 					$servername = "localhost";
@@ -46,7 +46,7 @@
 					if ($result->num_rows > 0) {
     					// output data of each row
     					while($row = $result->fetch_assoc()) {
-        				echo "id: " . $row["pet_id"]. " - Name: " . $row["name"]. " " . $row["gender"]. " " . $row["age"]. " " . $row["type_id"]. " " . $row["notes"]. " " . $row["intake_date"]. "<br>";
+        				echo "id: " . $row["pet_id"]. " - Name: " . $row["name"]. " - Gender: " . $row["gender"]. " - Age: " . $row["age"]. " - Type: " . $row["type_id"]. " - Notes: " . $row["notes"]. " - Intake Date: " . $row["intake_date"]. "<br>";
     					}
 					} else {
     					echo "0 results";
