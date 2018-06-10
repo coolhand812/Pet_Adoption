@@ -38,7 +38,7 @@
 							}
 
 							//petID validate If the pet_id already exists
-							$mysqli = new mysqli('localhost1234', 'root', 'Squidly812', 'pet adoption');
+							$mysqli = new mysqli('localhost1234', 'root', '', 'pet adoption');
 							$result = $mysqli->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
 							if($result->num_rows == 0) {
 								 // row not found, do stuff...
@@ -97,7 +97,7 @@
 						{
 							echo "<b>Creating User: <i>$petName $petType</i></b><br>";
 							// Create connection
-							$conn = new mysqli('localhost1234', 'root', 'Squidly812', 'pet adoption');
+							$conn = new mysqli('localhost1234', 'root', '', 'pet adoption');
 							// Check connection
 							if ($conn->connect_error)
 							{

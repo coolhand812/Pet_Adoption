@@ -30,7 +30,7 @@
 					//generate db query and get a table
 					$servername = "localhost1234";
 					$username = "root";
-					$password = "Squidly812";
+					$password = "";
 					$dbname = "pettable";
 
 					// Create connection
