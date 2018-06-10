@@ -50,12 +50,16 @@
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
 							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
-							if($result->num_rows == 0) {
-								 // row not found, do stuff...
-							 	$petID = $_POST["petID"];
-							} else {
-								// do other stuff...
-								$petIDErr = "Please choose a different pet ID";
+							try{
+								if($result->num_rows == 0) {
+									 // row not found, do stuff...
+							 		$petID = $_POST["petID"];
+								} else {
+									// do other stuff...
+									$petIDErr = "Please choose a different pet ID";
+								}
+							}catch(Exception $e){
+								echo 'Message: ' .$e->getMessage();
 							}
 							$conn->close();
 							
@@ -123,7 +127,7 @@
 							$sql = "INSERT INTO pettable (pet_id, name, gender, age, type_id, notes, intake_date)
 							VALUES ('$petID', '$petName', '$petGender', '$petAge', '$petType', '$petNotes', '$inDate')";
 						
-							echo "SQL Statement: $sql <br>";
+							echo "SQL Statement: $sql <br><br>";
 							if ($conn->query($sql) === TRUE)
 							{
 								echo "<b>New record created successfully</b><br>";
