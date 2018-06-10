@@ -38,8 +38,14 @@
 							}
 
 							//petID validate If the pet_id already exists
-							$mysqli = new mysqli('localhost1234', 'root', '', 'pet adoption');
-							$result = $mysqli->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
+							$conn = new mysqli('localhost1234', 'root', '', 'pet adoption');
+							// Check connection
+							if ($conn->connect_error)
+							{
+								die("Connection failed: " . $conn->connect_error);
+							}
+							echo "<b>Connection to MySQL DB established!</b> <br>";
+							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
 							if($result->num_rows == 0) {
 								 // row not found, do stuff...
 								 $petID = $_POST["petID"];
@@ -47,7 +53,7 @@
 								// do other stuff...
 								$petIDErr = "Please choose a different pet ID";
 							}
-							$mysqli->close();
+							$conn->close();
 
 							if (empty($_POST["petName"])) {
 								$petNameErr = "Name is required";
