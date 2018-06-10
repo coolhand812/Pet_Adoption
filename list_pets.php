@@ -28,7 +28,7 @@
 				
 				<?php
 					//generate db query and get a table
-					$servername = "localhost1234";
+					$servername = "localhost";
 					$username = "root";
 					$password = "";
 					$dbname = "pet_adoption";
