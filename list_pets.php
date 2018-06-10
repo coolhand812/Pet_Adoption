@@ -53,7 +53,8 @@
 					}
 					$conn->close();
 				?>	
-					
+				</br></br>
+				<a href="main_menu.html">Go back to the main page</a>	
 				</div>
 				
 			</div>
