@@ -49,18 +49,17 @@
 								die("Connection failed: " . mysqli_connect_error());
 							}
 							echo "<b>Connection to MySQL DB established!</b> <br>";
-							try{
-							$result = $conn->query("SELECT pet_id FROM pettable WHERE pet_id = $petID");
-								if($result->num_rows == 0) {
-									 // row not found, do stuff...
-							 		$petID = $_POST["petID"];
-								} else {
-									// do other stuff...
-									$petIDErr = "Please choose a different pet ID";
-								}
-							}catch(Exception $e){
-								echo 'Message: ' .$e->getMessage();
+							$sql = "SELECT pet_id FROM pettable WHERE pet_id = $petID";
+							if($conn->query($sql) === false)
+							{
+								// row not found, do stuff...
+								echo "<b>pet ID is available</b><br>";
+								$petID = $_POST["petID"];
+							} else {
+								// do other stuff...
+								$petIDErr = "Please choose a different pet ID";
 							}
+							
 							$conn->close();
 							
 
